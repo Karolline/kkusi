@@ -24,8 +24,9 @@ class Candidate(models.Model):
     # kind = models.CharField(
     gender = models.CharField(max_length=2, choices=GENDER_CHOICES)
     name = models.CharField(max_length=10)
+    # adopted
     
-    image = models.ImageField(upload_to = user_path)
+    image = models.ImageField(blank = True)
     # thumname_image = 
     
     reg_date = models.DateTimeField(auto_now_add = True)
