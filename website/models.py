@@ -15,7 +15,7 @@ class Candidate(models.Model):
         pid = ''.join(arr)
         extension = filename.split('.')[-1]
         
-        return 'website/photo/%s.%s' % (pid, extension)
+        return 'images/%s.%s' % (pid, extension)
     
     # user = models.ForeignKey
     title = models.CharField(max_length=30)
@@ -26,7 +26,7 @@ class Candidate(models.Model):
     name = models.CharField(max_length=10)
     # adopted
     
-    image = models.ImageField(blank = True)
+    image = models.ImageField(upload_to=user_path)
     # thumname_image = 
     
     reg_date = models.DateTimeField(auto_now_add = True)
