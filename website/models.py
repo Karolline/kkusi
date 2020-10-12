@@ -3,8 +3,8 @@ from django.db import models
 class Candidate(models.Model):
 
     GENDER_CHOICES = (
-        ('M', 'Male'),
-        ('F', 'Female')
+        ('M', '남아'),
+        ('F', '여아')
     )
     
     def user_path(instance, filename):
@@ -17,17 +17,12 @@ class Candidate(models.Model):
         
         return 'images/%s.%s' % (pid, extension)
     
-    # user = models.ForeignKey
-    title = models.CharField(max_length=30)
-    # content
-    
     # kind = models.CharField(
     gender = models.CharField(max_length=2, choices=GENDER_CHOICES)
     name = models.CharField(max_length=10)
     # adopted
     
     image = models.ImageField(upload_to=user_path)
-    # thumname_image = 
     
     reg_date = models.DateTimeField(auto_now_add = True)
     
@@ -35,5 +30,15 @@ class Candidate(models.Model):
         self.save()
     
     def __str__(self):
-        return self.name
+        return self.title
+        
+class User(models.Model):
     
+    
+class Post(models.Model):
+    title = models.CharField(max_length=30)
+    user = models.ForeignKey(User, on_delete=models.SET_DEFAULT, default='알 수 없는 사용자')
+    
+    cand = models.ForeignKey(Candidate, on_delete=models.SET_NULL)
+    
+    pub_date = models.DateTimeField(auto_now_add = True)
