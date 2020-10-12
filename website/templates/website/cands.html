@@ -1,0 +1,22 @@
+{% extends "website/base.html" %}
+
+{% block content %}
+<table class="table table-striped">
+        <thead>
+        <tr>
+            <td><B>이름</B></td>
+            <td><B>성별</B></td>
+            <td><B>사진</B></td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for candidate in candidates %}
+		<tr>
+			<td> {{ candidate.name }} </td>
+			<td> {{ candidate.gender }} </td>
+			<td> <img src="{{candidate.image.url}}"></td>
+		</tr>
+		{% endfor %}
+        <tbody>
+    </table>
+{% endblock %}
