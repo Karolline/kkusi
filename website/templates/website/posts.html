@@ -1,0 +1,15 @@
+{% extends "website/base.html" %}
+
+{% block content %}
+	게시판 형태로 만들기
+	<ol>
+		{% for post in posts %}
+			<li>
+				{{ post.title }}
+			</li>
+			{% for photo in post.photo_set.all %}
+				<img src="{{photo.image.url}}">
+			{% endfor %}
+		{% endfor %}
+	</ol>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "website/base.html" %}
+
+{% block content %}
+	1. 토끼 정보
+	이름: {{ cand.name }}
+	<br>
+	출생연도: {{ cand.birth_year }}
+	
+	<br><br>2. 관련 게시물
+	
+	{% for post in posts %}
+		<br>-{{ post.title }}
+	{% endfor %}
+{% endblock %}

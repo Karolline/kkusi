@@ -9,27 +9,40 @@ def image_path(instance, filename):
         extension = filename.split('.')[-1]
         
         return 'images/%s.%s' % (pid, extension)
+        
+GENDER_CHOICES = (
+        ('M', '남'),
+        ('F', '여')
+    )
+        
+class Protector(models.Model):
+    name = models.CharField(max_length=10)
+    
+    naver_id = models.CharField(max_length=20, null=True)
+    phone_number = models.CharField(max_length=11, null=True)
+    
+    gender = models.CharField(max_length=2, choices=GENDER_CHOICES, null=True)
+    age = models.IntegerField(null=True)
+    memo = models.TextField(null=True)
+    
+    def __str__(self):
+        return self.name
+        
+    class Meta:
+        verbose_name_plural = "임시보호자"
 
 class Candidate(models.Model):
-
-    GENDER_CHOICES = (
-        ('M', '남아'),
-        ('F', '여아')
-    )
-    
     name = models.CharField(max_length=10)
     gender = models.CharField(max_length=2, choices=GENDER_CHOICES)
     # kind = models.CharField(
     birth_year = models.IntegerField()
     
     adopted = models.BooleanField()
+    protector = models.ForeignKey(Protector, on_delete=models.SET_NULL, null=True)
     
     image = models.ImageField(upload_to=image_path)
     
     reg_date = models.DateTimeField(auto_now_add = True)
-    
-    def register(self):
-        self.save()
     
     def __str__(self):
         return self.name
@@ -49,7 +62,13 @@ class Post(models.Model):
     hide_yn = models.BooleanField()
     
     pub_date = models.DateTimeField(auto_now_add = True)
-    mod_date = models.DateTimeField()
+    mod_date = models.DateTimeField(auto_now_add = True)
+    
+    def __str__(self):
+        return self.title
+        
+    class Meta:
+        verbose_name_plural = "입양 홍보글"
     
 class Photo(models.Model):
     post = models.ForeignKey(Post, on_delete=models.SET_NULL, null=True)
