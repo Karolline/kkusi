@@ -1,2 +1,6 @@
 __pycache__/
 env/
+
+test.py
+.python-version
+db.sqlite3
