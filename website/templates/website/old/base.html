@@ -1,0 +1,66 @@
+{% load static %}
+
+<html lang="en">
+	<head>
+		<title>꾸시꾸시</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="{% static 'bootstrap-4.5.2-dist/css/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'custom/css/custom.css' %}">
+		
+		<link rel="stylesheet" href="{% static  'css/open-iconic-bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static  'css/animate.css' %}">
+		
+		<link rel="stylesheet" href="{% static  'css/owl.carousel.min.css' %}">
+		<link rel="stylesheet" href="{% static  'css/owl.theme.default.min.css' %}">
+		<link rel="stylesheet" href="{% static  'css/magnific-popup.css' %}">
+
+		<link rel="stylesheet" href="{% static  'css/aos.css' %}">
+
+		<link rel="stylesheet" href="{% static  'css/ionicons.min.css' %}">
+
+		<link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+		<link rel="stylesheet" href="{% static  'css/jquery.timepicker.css' %}">
+
+		
+		<link rel="stylesheet" href="{% static  'css/flaticon.css' %}">
+		<link rel="stylesheet" href="{% static  'css/icomoon.css' %}">
+		<link rel="stylesheet" href="{% static  'css/style.css' %}">
+		
+		<!-- jquery -->
+		<script src="{% static 'bootstrap-4.5.2-dist/js/bootstrap.bundle.min.js' %}"></script>
+	</head>
+
+	<body>
+		<div class="container">
+			<div id="colorlib-page">
+				<aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
+					<h1 id="colorlib-logo"><a href="{% url 'website:index' %}"><span class="flaticon-camera"></span>꾸시꾸시</a></h1> <!-- icon 넣는 부분 -->
+					<nav id="colorlib-main-menu" role="navigation">
+						<ul>
+							<li><a href="{% url 'website:cands' %}">토끼목록</a></li>
+							<li><a href="{% url 'website:posts' %}">입양홍보</a></li>
+							<li><a href="{% url 'website:notice' %}">입양절차</a></li>
+						</ul>
+					</nav>
+
+					<div class="colorlib-footer">
+						<h3>관련 SNS</h3>
+						<div class="d-flex justify-content-center">
+							<ul class="d-flex align-items-center">
+								<li class="d-flex align-items-center jusitfy-content-center"><a href="https://instagram.com/kusikusi_cafe"><i class="icon-instagram"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</aside>
+				
+				<div id="colorlib-main">
+					{% block content %}
+					{% endblock%}
+				</div>
+			</div> <!-- colorlib-page -->
+			
+		</div> <!-- container -->
+	</body>
+
+</html>
