@@ -2,13 +2,13 @@ from django.contrib import admin
 from .models import Candidate, Post, Photo, Protector
 
 class CandidateAdmin(admin.ModelAdmin):
-    list_display = ('name', 'gender', 'birth_year', 'adopted', 'image', 'protector', )
+    list_display = ('name', 'gender', 'age', 'adopted', 'image', 'protector', )
     list_editable = ('adopted', )
     list_filter = ('adopted', )
     search_fields = ('name', )
     
     fieldsets = (
-        ('기본 정보', {'fields': (('name', 'gender', 'birth_year',))}),
+        ('기본 정보', {'fields': (('name', 'gender', 'age',))}),
         ('입양 여부', {'fields': (('protector', 'adopted',))}),
         ('썸네일', {'fields': (('image', ))})
     )
@@ -27,4 +27,7 @@ class ProtectorAdmin(admin.ModelAdmin):
 
 admin.site.register(Protector, ProtectorAdmin)
 
-admin.site.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    inlines = [PhotoInline, ]
+
+admin.site.register(Post, PostAdmin)

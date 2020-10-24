@@ -1,0 +1,42 @@
+{% extends "website/base.html" %}
+
+{% block content %}
+
+	<div class="site-section first-section" data-aos="fade">
+      <div class="container">
+        <div class="row mb-5">
+		
+		{% for candidate in candidates %}
+          <a href="{% url 'website:cand' candidate.id %}">
+			  <div class="col-md-6 col-lg-4 mb-5">
+				<div class="media-image">
+				  <img src="{{ candidate.image.url }}" alt="Image" class="img-fluid">
+				  <div class="media-image-body">
+					<h2 class="font-secondary text-uppercase">{{ candidate.name }}</h2>
+					<span class="d-block mb-3">부가설명</span>
+					<p>부가정보</p>
+				  </div>
+				</div>
+			  </div>
+		  </a>
+		  {% endfor %}
+		  
+        </div>
+
+        <div class="row">
+          <div class="col-12 text-center">
+            <div class="custom-pagination">
+              <span class="current">1</span>
+              <a href="#">2</a>
+              <a href="#">3</a>
+              <a href="#">4</a>
+              <a href="#">5</a>
+              <span>...</span>
+              <a href="#">14</a>
+            </div>
+          </div>
+        </div>
+		
+      </div>
+	
+{% endblock %}

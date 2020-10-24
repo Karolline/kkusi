@@ -1,12 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Candidate, Post
     
 def index(request):
     return render(request, 'website/index.html')
     
+def reindex(request):
+    return redirect(index)
+    
 def cands(request):
-    candidates = Candidate.objects.filter(adopted='False')
+    candidates = Candidate.objects.exclude(adopted__in=['3', '4'])
     return render(request, 'website/cands.html', {'candidates': candidates})
     
 def cand(request, cand_id):
