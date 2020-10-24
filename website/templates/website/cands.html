@@ -2,26 +2,40 @@
 
 {% block content %}
 
+	<div class="slant-1"></div>
+
 	<div class="site-section first-section" data-aos="fade">
       <div class="container">
         <div class="row mb-5">
 		
+			<div class="col-md-12 text-center" data-aos="fade">
+				<span class="caption d-block mb-2 font-secondary font-weight-bold">토끼목록</span>
+				<h2 class="site-section-heading text-uppercase text-center font-secondary">보호 중인 토끼들입니다</h2>
+			</div>
+			
+		</div>
+		
+		<div  class="row border-responsive">
+		
 		{% for candidate in candidates %}
-          <a href="{% url 'website:cand' candidate.id %}">
-			  <div class="col-md-6 col-lg-4 mb-5">
-				<div class="media-image">
-				  <img src="{{ candidate.image.url }}" alt="Image" class="img-fluid">
-				  <div class="media-image-body">
-					<h2 class="font-secondary text-uppercase">{{ candidate.name }}</h2>
-					<span class="d-block mb-3">부가설명</span>
-					<p>부가정보</p>
-				  </div>
-				</div>
-			  </div>
-		  </a>
+			<div class="col-md-6 col-lg-4 mb-5">
+				<a href="{% url 'website:cand' candidate.id %}">
+					<div class="media-image">
+					  <img src="{{ candidate.image.url }}" alt="Image" class="img-fluid">
+					  <div class="media-image-body">
+						<h2 class="font-secondary text-uppercase">{{ candidate.name }}</h2>
+						<span class="d-block mb-3">{{ candidate.gender }} | {{ candidate.age}} </span>
+						<p>중성화 여부: {{ candidate.neutering }}</p>
+						<p>보호상태: {{ candidate.adopted }} </p>
+					  </div>
+					</div>
+				</a>
+		  </div>
 		  {% endfor %}
 		  
-        </div>
+		</div>
+		  
+        
 
         <div class="row">
           <div class="col-12 text-center">

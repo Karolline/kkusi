@@ -56,7 +56,7 @@ class Candidate(models.Model):
     kind = models.CharField(max_length=20, null=True, blank=True, verbose_name='종')
     # birth_year = models.IntegerField(null=True, , verbose_name='')
     age = models.CharField(max_length=20, blank=True, verbose_name='나이')
-    neutering = models.BooleanField(null=True, blank=True)
+    neutering = models.BooleanField(null=True, blank=True, verbose_name='중성화 여부')
     
     # adopted = models.BooleanField(verbose_name='입양완료여부')
     adopted = models.CharField(max_length=2, choices=CANDS_STATUS, null=True, blank=True, verbose_name='보호상태')

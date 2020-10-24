@@ -82,9 +82,15 @@
 						  </ul>
 						</li>
 						<li><a href="{% url 'website:notice' %}">입양안내</a></li>
-						<li><a href="{% url 'website:cands' %}">무료입양</a></li>
+						<li class="has-children">
+							<a href="{% url 'website:cands' %}">무료입양</a>
+							<ul class="dropdown arrow-top">
+								<li><a href="{% url 'website:cands' %}">토끼목록</a></li>
+								<li><a href="{% url 'website:posts' %}">토끼자랑</a></li>
+							</ul>
+						</li>
 						<li><a href="#">입양완료</a></li>
-						<li><a href="https://instagram.com/kusikusi_cafe">인스타 <i class="icon-instagram"></i></a></li>
+						<li><a href="https://instagram.com/kusikusi_cafe" target="_blank">인스타 <i class="icon-instagram"></i></a></li>
 						<!--<li><a href="contact.html"><span class="d-inline-block bg-primary text-white btn btn-primary">Get Started</span></a></li>-->
 					  </ul>
 					</div>
@@ -94,8 +100,6 @@
 			</div>
 		  </div>
 		</div>
-		
-		<div class="slant-1"></div>
 		
 		{% block content %}
 		{% endblock %}
