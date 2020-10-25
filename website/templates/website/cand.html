@@ -5,7 +5,13 @@
 	<h1>
 	{{ cand.name }}</h1>
 
-	{% for post in posts %}
-		<br>-{{ post.title }}
-	{% endfor %}
+	<p>포도 관련 정보</p>
+	<p>{{cand.neutering}}</p>
+	
+	<ul>
+		{{cand.name}} 관련 글 다 모아서 보여주기
+		{% for post in posts %}
+			<li>{{ post.title }}</li>
+		{% endfor %}
+	</ul>
 {% endblock %}

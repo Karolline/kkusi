@@ -9,6 +9,20 @@ def index(request):
 def reindex(request):
     return redirect(index)
     
+    
+def intro1(request):
+    return render(request, 'website/intro1.html')
+    
+def intro2(request):
+    return render(request, 'website/intro2.html')
+    
+def intro3(request):
+    return render(request, 'website/intro3.html')
+
+def intro_adopt(request):
+    return render(request, 'website/intro_adopt.html')
+    
+    
 def cands(request):
     candidates = Candidate.objects.exclude(adopted__in=['3', '4'])
     
@@ -33,13 +47,11 @@ def cands(request):
     
 def cand(request, cand_id):
     cand = Candidate.objects.get(id=cand_id)
-    # posts = get_object_or_404(Post, cand=cand_id)
     posts = Post.objects.filter(cand=cand_id)
+    # posts와 관련된 사진 전부 보여주기
     return render(request, 'website/cand.html',  {'cand': cand, 'posts': posts})
     
 def posts(request):
     posts = Post.objects.all()
     return render(request, 'website/posts.html', {'posts': posts})
     
-def notice(request):
-    return render(request, 'website/notice.html')
