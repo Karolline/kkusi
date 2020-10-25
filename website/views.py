@@ -51,12 +51,6 @@ def cand(request, cand_id):
     cand = convert_cand([cand])[0]
     
     posts = Post.objects.filter(cand=cand_id)
-<<<<<<< HEAD
-    # posts와 관련된 사진 전부 보여주기
-    print(posts)
-    print(cand)
-    return render(request, 'website/cand.html',  {'cand': cand, 'posts': posts})
-=======
     
     # photos = Photo.objects.select_related('post').filter(post_id__in=post_id)
     # photos = Photo.objects.filter(post__in=posts)
@@ -72,7 +66,6 @@ def cand(request, cand_id):
     print(post_sets)
 
     return render(request, 'website/cand.html',  {'cand': cand, 'post_sets': post_sets})
->>>>>>> 038e7705e9725e5b9384483baad725039ae7a8b7
     
 def posts(request):
     posts = Post.objects.all()
