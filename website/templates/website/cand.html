@@ -2,27 +2,49 @@
 
 {% block content %}
 	
-	<h1>{{ cand.name }}</h1>
-	<img src="{{ cand.image.url }}" alt="Image" class="img-fluid" style="width: 400px;">
-	<span>포도 관련 정보</span>
-	<ul>
-		<li>성별: {{ cand.gender }}</li>
-		<li>종: {{ cand.kind }}</li>
-		<li>나이: {{ cand.age }}</li>
-		<li>중성화여부: {{ cand.neutering }}</li>
-		<li>보호상태: {{ cand.adopted }}</li>
-		<li>보호자: {{ cand.protector }}</li>
-		<li>등록일: {{ cand.reg_date }}</li>
-	</ul>
+	<div class="col-md-12 text-center" data-aos="fade">
+	<span class="caption d-block mb-2 font-secondary font-weight-bold">상세정보</span>
+		<h2 class="site-section-heading text-uppercase text-center font-secondary">{{ cand.name }}</h2>
+    </div>
 	
-	<span>{{cand.name}} 의 입양홍보글</span>
+	<div class="row">
+		<div class="col-md-6 col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="">
+			<img src="{{ cand.image.url }}" alt="Image" class="img-fluid">
+		</div>
+		<div class="col-md-6 col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="">
+			<ul>
+				<li>성별: {{ cand.gender }}</li>
+				<li>종: {{ cand.kind }}</li>
+				<li>나이: {{ cand.age }}</li>
+				<li>중성화여부: {{ cand.neutering }}</li>
+				<li>보호상태: {{ cand.adopted }}</li>
+				<li>보호자: {{ cand.protector }}</li>
+				<li>등록일: {{ cand.reg_date }}</li>
+			</ul>
+		</div>
+		
+	</div>
+	
+	<div class="col-md-12 text-center" data-aos="fade">
+		<span class="caption d-block mb-2 font-secondary font-weight-bold">{{ cand.name }}관련 글 모음</span>
+		<h2 class="site-section-heading text-uppercase text-center font-secondary"></h2>
+    </div>
+	
+	{% for post_set in post_sets %}
+	<div class="row">
+		<div class="col-md-6 text-center mb-3 mb-md-0">
+			<h4 class="text-uppercase mb-4">{{ post_set.post }}</h4>
+		</div>
+	</div>
+	{% endfor %}
+	
 	<ul>
-		{% for post_set in post_sets %}
+		
 			<li>{{ post_set.post }}
 			{% for photo in post_set.photos %}
 				<img src="{{ photo.image.url }}" alt="Image" class="img-fluid" style="width: 400px;">
 			{% endfor %}
 			</li>
-		{% endfor %}
+		
 	</ul>
 {% endblock %}
