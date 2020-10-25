@@ -8,8 +8,7 @@ def index(request):
     
 def reindex(request):
     return redirect(index)
-    
-    
+        
 def intro1(request):
     return render(request, 'website/intro1.html')
     
@@ -49,6 +48,8 @@ def cand(request, cand_id):
     cand = Candidate.objects.get(id=cand_id)
     posts = Post.objects.filter(cand=cand_id)
     # posts와 관련된 사진 전부 보여주기
+    print(posts)
+    print(cand)
     return render(request, 'website/cand.html',  {'cand': cand, 'posts': posts})
     
 def posts(request):

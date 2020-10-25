@@ -29,22 +29,37 @@
 	  {% endfor %}
 	  
 	</div>
-	  
-	
 
-	<div class="row">
-	  <div class="col-12 text-center">
-		<div class="custom-pagination">
-		  <span class="current">1</span>
-		  <a href="#">2</a>
-		  <a href="#">3</a>
-		  <a href="#">4</a>
-		  <a href="#">5</a>
-		  <span>...</span>
-		  <a href="#">14</a>
-		</div>
-	  </div>
-	</div>
-
+	<ul class="pagination justify-content-center">
+        {% if candidate.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ candidate.previous_page_number }}">이전</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
+        </li>
+        {% endif %}
+        {% for page_number in candidate.paginator.page_range %}
+            {% if page_number == candidate.number %}
+            <li class="page-item active" aria-current="page">
+                <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+            </li>
+            {% else %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+            </li>
+            {% endif %}
+        {% endfor %}
+        {% if candidate.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ candidate.next_page_number }}">다음</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+        </li>
+        {% endif %}
+    </ul>
 	
 {% endblock %}
