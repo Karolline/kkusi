@@ -8,8 +8,7 @@ def index(request):
     
 def reindex(request):
     return redirect(index)
-    
-    
+        
 def intro1(request):
     return render(request, 'website/intro1.html')
     
