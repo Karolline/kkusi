@@ -35,12 +35,12 @@ def cands(request):
         if cand.adopted is not None:
             cand.adopted = CANDS_STATUS[int(cand.adopted)-1][1]
             
-        if cand.neutering == 'True':
+        if cand.neutering is True:
             cand.neutering = 'O'
-        elif cand.neutering == 'False':
+        elif cand.neutering is False:
             cand.neutering = 'X'
         else:
-            cand.neutering = ''
+            cand.neutering = '미상'
             
     
     return render(request, 'website/cands.html', {'candidates': candidates})
