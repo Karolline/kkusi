@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.core.paginator import Paginator
 from .models import Candidate, Post, Photo
 from .models import GENDER_CHOICES, CANDS_STATUS
     
@@ -41,10 +42,12 @@ def convert_cand(candidates):
     return candidates
 
 def cands(request):
+    page = request.GET.get('page', '1')  
     candidates = Candidate.objects.exclude(adopted__in=['3', '4'])
     candidates = convert_cand(candidates)
-    
-    return render(request, 'website/cands.html', {'candidates': candidates})
+    paginator = Paginator(candidates, 9)
+    candidates_page = paginator.get_page(page)
+    return render(request, 'website/cands.html', {'candidates_page': candidates_page})
     
 def cand(request, cand_id):
     cand = Candidate.objects.get(id=cand_id)
@@ -66,8 +69,21 @@ def cand(request, cand_id):
     print(post_sets)
 
     return render(request, 'website/cand.html',  {'cand': cand, 'post_sets': post_sets})
-    
+
 def posts(request):
+    page = request.GET.get('page', '1')  
     posts = Post.objects.all()
-    return render(request, 'website/posts.html', {'posts': posts})
+    paginator = Paginator(posts, 9)
+    posts_page = paginator.get_page(page)
+
+    for post in posts_page.object_list:
+        post.photo = Photo.objects.filter(post = post)[0]
+    
+    return render(request, 'website/posts.html', {'posts_page': posts_page})
+
+def post(request, post_id):
+    post = Post.objects.get(id=post_id)
+    post.photo = Photo.objects.filter(post = post)
+    related_posts = Post.objects.filter(cand=post.cand.id).exclude(id = post_id)
+    return render(request, 'website/post.html', {'post': post, 'related_posts':related_posts})
     

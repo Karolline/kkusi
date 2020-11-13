@@ -81,9 +81,9 @@ class Post(models.Model):
     content = models.TextField(verbose_name='내용', null=True, blank=True)
     
     cand = models.ForeignKey(Candidate, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='토끼')
-    
+
     hide_yn = models.BooleanField(verbose_name='숨김여부')
-    
+
     pub_date = models.DateTimeField(auto_now_add = True, verbose_name='등록날짜')
     mod_date = models.DateTimeField(auto_now_add = True, verbose_name='수정날짜')
     

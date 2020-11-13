@@ -15,6 +15,7 @@ urlpatterns = [
     path('cands/', views.cands, name='cands'),
     path('cand/<int:cand_id>/', views.cand, name='cand'),
     path('posts/', views.posts, name='posts'),
+    path('post/<int:post_id>/', views.post, name='post'),
     
     
 ]

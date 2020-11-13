@@ -8,13 +8,51 @@
 	  </div>
 	</div>
 	
-	<div class="row border-responsive">
-		<ul>
-		{% for post in posts %}
-			<li>[{{post.cand}}] {{ post.title }}</li>
-		{% endfor %}
-		</ul>
-		
+	{% for post in posts_page.object_list %}
+	<div class="col-md-6 col-lg-4 mb-5">
+		<a href="{% url 'website:post' post.id %}">
+			<div class="media-image">
+			<img src="{{ post.photo.image.url }}" alt="Image" class="img-fluid">
+			<div class="media-image-body">
+				<h2 class="font-secondary text-uppercase">{{ post.title }}</h2>
+				<p>{{post.cand}}</p>
+				<p>{{post.pub_date}}</p>
+			</div>
+			</div>
+		</a>
 	</div>
+	{% endfor %}
+
+	<ul class="pagination justify-content-center">
+        {% if posts_page.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ posts_page.previous_page_number }}">이전</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
+        </li>
+        {% endif %}
+        {% for page_number in posts_page.paginator.page_range %}
+            {% if page_number == posts_page.number %}
+            <li class="page-item active" aria-current="page">
+                <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+            </li>
+            {% else %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+            </li>
+            {% endif %}
+        {% endfor %}
+        {% if posts_page.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ posts_page.next_page_number }}">다음</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+        </li>
+        {% endif %}
+    </ul>
 
 {% endblock %}
