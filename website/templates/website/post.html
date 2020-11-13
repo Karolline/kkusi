@@ -1,0 +1,44 @@
+{% extends "website/base.html" %}
+
+{% block content %}
+	
+	<div class="col-md-12 text-center" data-aos="fade">
+	<span class="caption d-block mb-2 font-secondary font-weight-bold">토끼자랑</span>
+		<h2 class="site-section-heading text-uppercase text-center font-secondary">보호 중인 토끼에 대한 글 입니다.</h2>
+    </div>
+	
+	<div class="row">
+		{% for photo in post.photo %}
+			<div class="col-md-6 col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="">
+				<img src="{{ photo.image.url }}" alt="Image" class="img-fluid">
+			</div>
+		{% endfor %}
+		<div class="col-md-6 col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="">
+			<ul>
+				<li>제목: {{ post.title }}</li>
+				<li>날짜: {{ post.pub_date }}</li>
+				<li>이름: {{ post.cand.name }}</li>
+				<li>
+					내용
+					<p>
+						{{ post.content }}
+					</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="col-md-12 text-center" data-aos="fade">
+		<span class="caption d-block mb-2 font-secondary font-weight-bold">{{ post.cand.name }}관련 글 모음</span>
+		<h2 class="site-section-heading text-uppercase text-center font-secondary"></h2>
+    </div>
+	
+	{% for related_post in related_posts %}
+	<div class="row">
+		<div class="col-md-6 text-center mb-3 mb-md-0">
+			<h4 class="text-uppercase mb-4">{{ related_post }}</h4>
+		</div>
+	</div>
+	{% endfor %}
+
+{% endblock %}

@@ -12,7 +12,7 @@
 	
 	<div  class="row border-responsive">
 	
-	{% for candidate in candidates %}
+	{% for candidate in candidates_page.object_list %}
 		<div class="col-md-6 col-lg-4 mb-5">
 			<a href="{% url 'website:cand' candidate.id %}">
 				<div class="media-image">
@@ -31,17 +31,17 @@
 	</div>
 
 	<ul class="pagination justify-content-center">
-        {% if candidate.has_previous %}
+        {% if candidates_page.has_previous %}
         <li class="page-item">
-            <a class="page-link" href="?page={{ candidate.previous_page_number }}">이전</a>
+            <a class="page-link" href="?page={{ candidates_page.previous_page_number }}">이전</a>
         </li>
         {% else %}
         <li class="page-item disabled">
             <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
         </li>
         {% endif %}
-        {% for page_number in candidate.paginator.page_range %}
-            {% if page_number == candidate.number %}
+        {% for page_number in candidates_page.paginator.page_range %}
+            {% if page_number == candidates_page.number %}
             <li class="page-item active" aria-current="page">
                 <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
             </li>
@@ -51,9 +51,9 @@
             </li>
             {% endif %}
         {% endfor %}
-        {% if candidate.has_next %}
+        {% if candidates_page.has_next %}
         <li class="page-item">
-            <a class="page-link" href="?page={{ candidate.next_page_number }}">다음</a>
+            <a class="page-link" href="?page={{ candidates_page.next_page_number }}">다음</a>
         </li>
         {% else %}
         <li class="page-item disabled">
