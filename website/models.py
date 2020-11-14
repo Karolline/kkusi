@@ -19,7 +19,8 @@ PROTECTOR_CHOICES = (
 
 GENDER_CHOICES = (
     ('M', '남'),
-    ('F', '여')
+    ('F', '여'),
+    ('Q', '미상'),
 )
 
 CANDS_STATUS = (
@@ -66,6 +67,8 @@ class Candidate(models.Model):
     
     reg_date = models.DateTimeField(auto_now_add = True, verbose_name='등록일자')
     adopt_date = models.DateTimeField(null=True, blank=True, verbose_name='입양날짜')
+    
+    memo = models.TextField(null=True, blank=True, verbose_name='기타 메모')
     
     def __str__(self):
         return self.name

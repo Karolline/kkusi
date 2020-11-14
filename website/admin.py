@@ -8,7 +8,7 @@ class CandidateAdmin(admin.ModelAdmin):
     search_fields = ('name', )
     
     fieldsets = (
-        ('기본 정보', {'fields': (('name', 'gender', 'age', 'kind', 'neutering', ))}),
+        ('기본 정보', {'fields': (('name', 'gender', 'age', 'kind', 'neutering', 'memo'))}),
         ('입양 여부', {'fields': (('protector', 'adopted', 'adopt_date', ))}),
         ('사진', {'fields': (('image', ))})
     )
