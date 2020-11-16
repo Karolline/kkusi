@@ -7,11 +7,13 @@
 		<h2 class="site-section-heading text-uppercase text-center font-secondary">{{ cand.name }}</h2>
     </div>
 	
-	<div class="row">
-		<div class="col-md-6 col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="">
-			<img src="{{ cand.image.url }}" alt="Image" class="img-fluid">
+	<div class="row mt-4">
+		<div class="col-md-12 col-lg-12 mb-4" data-aos="fade-up" data-aos-delay="">
+			<div style="width: 600px; margin: 0 auto;">
+				<img src="{{ cand.image.url }}" alt="Image" class="img-fluid">
+			</div>
 		</div>
-		<div class="col-md-6 col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="">
+		<!-- <div class="col-md-12 col-lg-12 mb-4" data-aos="fade-up" data-aos-delay="">
 			<ul>
 				<li>성별: {{ cand.gender }}</li>
 				<li>종: {{ cand.kind }}</li>
@@ -21,18 +23,50 @@
 				<li>보호자: {{ cand.protector }}</li>
 				<li>등록일: {{ cand.reg_date }}</li>
 			</ul>
+		</div> -->
+
+		<div class="col-md-12 col-lg-12 mb-4" data-aos="fade-up" data-aos-delay="">
+			<div style="width: 600px; margin: 0 auto;">
+				<table class="type05 text-center">
+					<tr>
+						<th scope="row">성별</th>
+						<td>{{ cand.gender }}</td>
+					</tr>
+					<tr>
+						<th scope="row">나이</th>
+						<td>{{ cand.age }}</td>
+					</tr>
+					<tr>
+						<th scope="row">중성화여부</th>
+						<td>{{ cand.neutering }}</td>
+					</tr>
+					<tr>
+						<th scope="row">보호상태</th>
+						<td>{{ cand.adopted }}</td>
+					</tr>
+					<tr>
+						<th scope="row">보호자</th>
+						<td>{{ cand.neutering }}</td>
+					</tr>
+					<tr>
+						<th scope="row">등록일</th>
+						<td>{{ cand.reg_date }}</td>
+					</tr>
+				</table>
+			</div>
+			
 		</div>
 		
 	</div>
 	
-	<div class="col-md-12 text-center" data-aos="fade">
+	<div class="col-md-12 text-center mt-4" data-aos="fade">
 		<span class="caption d-block mb-2 font-secondary font-weight-bold">{{ cand.name }}관련 글 모음</span>
 		<h2 class="site-section-heading text-uppercase text-center font-secondary"></h2>
     </div>
 	
 	{% for post_set in post_sets %}
-	<div class="row">
-		<div class="col-md-6 text-center mb-3 mb-md-0">
+	<div class="row mt-4">
+		<div class="col-md-12 text-center mb-3 mb-md-0">
 			<h4 class="text-uppercase mb-4">{{ post_set.post }}</h4>
 		</div>
 	</div>
