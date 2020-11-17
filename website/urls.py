@@ -8,6 +8,7 @@ urlpatterns = [
     path('index/', views.reindex, name='reindex'),
     
     path('intro_adopt/', views.intro_adopt, name='intro_adopt'),
+    path('req_adopt/', views.req_adopt, name='req_adopt'),
     path('intro1/', views.intro1, name='intro1'),
     path('intro2/', views.intro2, name='intro2'),
     path('intro3/', views.intro3, name='intro3'),

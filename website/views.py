@@ -22,6 +22,9 @@ def intro3(request):
 def intro_adopt(request):
     return render(request, 'website/intro_adopt.html')
     
+def req_adopt(request):
+    return render(request, 'website/req_adopt.html')
+    
 def convert_cand(candidates):
     for cand in candidates:
         if cand.gender == 'M':

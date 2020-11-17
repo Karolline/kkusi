@@ -8,20 +8,22 @@
 	  </div>
 	</div>
 	
-	{% for post in posts_page.object_list %}
-	<div class="col-md-6 col-lg-4 mb-5">
-		<a href="{% url 'website:post' post.id %}">
-			<div class="media-image">
-			<img src="{{ post.photo.image.url }}" alt="Image" class="img-fluid">
-			<div class="media-image-body">
-				<h2 class="font-secondary text-uppercase">{{ post.title }}</h2>
-				<p>{{post.cand}}</p>
-				<p>{{post.pub_date}}</p>
+	<div  class="row border-responsive">
+		{% for post in posts_page.object_list %}
+			<div class="col-md-6 col-lg-4 mb-5">
+				<a href="{% url 'website:post' post.id %}">
+					<div class="media-image">
+					  <img src="{{ post.photo.image.url }}" alt="Image" class="img-fluid">
+					  <div class="media-image-body">
+						<h2 class="font-secondary text-uppercase">{{ post.title }}</h2>
+						<p>{{post.cand}}</p>
+						<p>{{post.pub_date}}</p>
+					  </div>
+					</div>
+				</a>
 			</div>
-			</div>
-		</a>
+		  {% endfor %}
 	</div>
-	{% endfor %}
 
 	<ul class="pagination justify-content-center">
         {% if posts_page.has_previous %}

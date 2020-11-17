@@ -1,0 +1,32 @@
+{% extends "website/base.html" %}
+
+{% block content %}
+	<div class="row mb-5">
+	  <div class="col-md-12 text-center" data-aos="fade">
+		<span class="caption d-block mb-2 font-secondary font-weight-bold">입양신청 방법입니다</span>
+		<h2 class="site-section-heading text-uppercase text-center font-secondary">입양신청</h2>
+	  </div>
+	</div>
+	
+	<div class="row border-responsive">
+	  <div class="col-md-12 col-lg-12 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="">
+		<div class="text-center">
+			<p>입양은 다음과 같은 절차로 진행됩니다.</p>
+			<p>1. 네이버 카페 <a href="http://cafe.naver.com/pultodong/" target="_blank">풀토동: 풀 뜯는 토끼 동산</a>  가입<br>2. 등업<br>3. 입양 신청서 작성</p>
+			<p>단 토끼보호연대의 <a href="{% url 'website:intro_adopt' %}">입양조건</a>에 따라주셔야 합니다.</p>
+		</div>
+	  </div>
+	</div>
+	
+	<div class="row border-responsive">
+	  <div class="col-md-12 col-lg-12 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="">
+		<div class="text-center">
+			<p>이러한 조건이 존재하는 이유는 동물의 안전과 그 아이의 생이 다 하는 날까지 버림받거나 방치, 학대당하지 않고 습성에 대한 존중과 애정을 바탕으로 온전한 삶을 영위할 것임을 확인하기 위해서입니다.</p>
+			<p>입양처를 확정짓는다는 것은 해당 동물 구조의 마지막 단계이자 그 아이의 남은 삶을 결정짓는 행위이기 때문에 더 신중을 기하는 체계입니다.</p>
+			<p>가정 방문이나 카페에 소식 전하기 등 의무 조항이 부담이나 불쾌감으로 다가오시는 분들의 느낌 또한 존중하며, 그런 분들께는 시에서 운영하는 보호소들에도 많은 유기토끼, 유기 소동물들이 입양을 유일한 탈출구로 기다리고 있으니 부디 마트나 수족관에서 생명을 구매하지 마시고, 그 아이들의 입양을 적극 고려해 주시기를 당부드립니다.</p>
+		  <a href="http://cafe.naver.com/pultodong/40" target="_blank"><span class="d-inline-block bg-primary text-white btn btn-primary">입양신청서 작성하기</span></a>
+		</div>
+	  </div>
+	</div>
+
+{% endblock %}

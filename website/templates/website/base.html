@@ -57,6 +57,9 @@
 			  <div class="row align-items-center">
 				<div class="col-2">
 				  <h2 class="mb-0 site-logo"><a href="{% url 'website:index' %}" class="font-weight-bold text-uppercase">KUSIKUSI</a></h2>
+				  <!--<h2 class="mb-0 site-logo"><a href="{% url 'website:index' %}" class="font-weight-bold text-uppercase">
+					<img src="{% static 'images/kkusikkusi_logo_sm.png' %}" style="width: 70%;"/>
+				  </a></h2>-->
 				</div>
 				<div class="col-10">
 				  <nav class="site-navigation text-right" role="navigation">
@@ -66,10 +69,11 @@
 					  <ul class="site-menu js-clone-nav d-none d-lg-block">
 						<li class="active"><a href="{% url 'website:index' %}">Home</a></li>
 						<li class="has-children">
-						  <a href="#">꾸시꾸시 소개</a>
+						  <a href="#">소개</a>
 						  <ul class="dropdown arrow-top">
-							<li><a href="{% url 'website:intro1' %}">토끼보호연대 구조활동</a></li>
-							<li><a href="{% url 'website:intro2' %}">꾸시꾸시 오시는길</a></li>
+							<li><a href="{% url 'website:intro1' %}">토끼보호연대</a></li>
+							<li><a href="{% url 'website:intro2' %}">꾸시꾸시</a></li>
+							<li><a href="{% url 'website:intro3' %}">오시는 길</a></li>
 							<!--<li class="has-children">
 							  <a href="#">Sub Menus</a>
 							  <ul class="dropdown">
@@ -80,7 +84,14 @@
 							</li>-->
 						  </ul>
 						</li>
-						<li><a href="{% url 'website:intro_adopt' %}">입양안내</a></li>
+						<!--<li><a href="{% url 'website:intro_adopt' %}">입양안내</a></li>-->
+						<li class="has-children">
+							<a href="{% url 'website:req_adopt' %}">입양안내</a>
+							<ul class="dropdown arrow-top">
+								<li><a href="{% url 'website:intro_adopt' %}">입양조건</a></li>
+								<li><a href="{% url 'website:req_adopt' %}">입양신청</a></li>
+							</ul>
+						</li>
 						<li class="has-children">
 							<a href="{% url 'website:cands' %}">책임입양</a>
 							<ul class="dropdown arrow-top">
