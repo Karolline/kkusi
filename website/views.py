@@ -28,6 +28,8 @@ def convert_cand(candidates):
             cand.gender = '남아'
         elif cand.gender == 'F':
             cand.gender = '여아'
+        elif cand.gender == 'Q':
+            cand.gender = '미상'
             
         if cand.adopted is not None:
             cand.adopted = CANDS_STATUS[int(cand.adopted)-1][1]
