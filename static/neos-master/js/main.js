@@ -56,6 +56,7 @@ jQuery(document).ready(function($) {
       e.preventDefault();  
       
     });
+	
 
 		$(window).resize(function() {
 			var $this = $(this),
