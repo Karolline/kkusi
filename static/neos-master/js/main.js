@@ -30,10 +30,10 @@ jQuery(document).ready(function($) {
         
         $this.prepend('<span class="arrow-collapse collapsed">');
 
-        //$this.find('.arrow-collapse').attr({
-        //  'data-toggle' : 'collapse',
-        //  'data-target' : '#collapseItem' + counter,
-        //});
+        $this.find('.arrow-collapse').attr({
+          'data-toggle' : 'collapse',
+          'data-target' : '#collapseItem' + counter,
+        });
 		
 		// arrow-collapse 뿐만 아니라 전체 메뉴를 누르면 메뉴가 펼쳐지도록 수정
 		$this.attr({
