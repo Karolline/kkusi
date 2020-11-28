@@ -56,3 +56,8 @@ table.type05 td {
     vertical-align: top;
     border-bottom: 1px solid #ccc;
 }
+
+img {
+	max-width: 100%;
+	height: auto;
+}
