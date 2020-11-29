@@ -56,3 +56,7 @@ table.type05 td {
     vertical-align: top;
     border-bottom: 1px solid #ccc;
 }
+
+.word-keep{
+    word-break: keep-all;
+}

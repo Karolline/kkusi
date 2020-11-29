@@ -40,17 +40,20 @@
 			</div>
 		{% endfor %}
 		<div class="col-md-12 col-lg-12 mb-4" data-aos="fade-up" data-aos-delay="">
-			<ul>
-				<li>제목: {{ post.title }}</li>
-				<li>날짜: {{ post.pub_date }}</li>
-				<li>이름: {{ post.cand.name }}</li>
-				<li>
-					내용
-					<p>
-						{{ post.content }}
-					</p>
-				</li>
-			</ul>
+			<div style="max-width: 600px; margin: 0 auto;">
+				<ul>
+					<li>제목: {{ post.title }}</li>
+					<li>날짜: {{ post.pub_date }}</li>
+					<li>이름: {{ post.cand.name }}</li>
+					<li>
+						내용
+						<p>
+							{{ post.content }}
+						</p>
+					</li>
+				</ul>
+			</div>
+			
 		</div>
 	</div>
 	
